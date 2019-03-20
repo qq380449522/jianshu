@@ -1,0 +1,113 @@
+.left {
+  float: left;
+  color: #666;
+}
+.right {
+  float: right;
+  color: #969696;
+}
+.active {
+  color: #ec6149;
+}
+.header {
+  height: 56px;
+  border-bottom: 1px solid #eee;
+}
+.header .logo {
+  background: url('../../static/logo.png');
+  width: 100px;
+  height: 56px;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+.header .nav {
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+}
+.header .nav .item {
+  line-height: 56px;
+  font-size: 17px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+.header .nav .search-box {
+  float: left;
+  position: relative;
+}
+.header .nav .search-box span {
+  position: absolute;
+  padding: 6px;
+  right: 6px;
+  top: 12px;
+  border-radius: 50%;
+  color: #969696;
+}
+.header .nav .search {
+  width: 240px;
+  margin-left: 20px;
+  margin-top: 9px;
+  padding: 0 30px;
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 19px;
+  background: #eee;
+  box-sizing: border-box;
+  font-size: 15px;
+  transition: width .5s;
+  transition-delay: .1s;
+}
+.header .nav .focuse-search {
+  width: 340px;
+  margin-left: 20px;
+  margin-top: 9px;
+  padding: 0 30px;
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 19px;
+  background: #eee;
+  box-sizing: border-box;
+  font-size: 15px;
+  transition: width .5s;
+  transition-delay: .1s;
+}
+.header .nav .focuse-search + span {
+  background: #969696;
+  color: #fff;
+}
+.header .addition {
+  height: 56px;
+  position: absolute;
+  right: 100px;
+  top: 0;
+}
+.header .addition a {
+  display: inline-block;
+  border-radius: 19px;
+  width: 80px;
+  height: 38px;
+  padding: 6px 12px;
+  line-height: 24px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 9px 5px 0 15px;
+  border: 1px solid #ec6149;
+  text-decoration: none;
+  font-size: 15px;
+}
+.header .addition a.reg {
+  color: #ec6149;
+}
+.header .addition a.reg:hover {
+  background: rgba($color: #ec6149, $alpha: .1)
+}
+.header .addition a.write {
+  width: 100px;
+  color: #fff;
+  background: #ec6149;
+}
