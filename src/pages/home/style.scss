@@ -77,7 +77,6 @@
     margin-top: -10px;
     overflow: hidden;
     .club {
-      height: 1000px;
       a {
         display: inline-block;
         width: 280px;
@@ -86,5 +85,135 @@
         background-size: cover 
       }
     }
+    .qr-code {
+      margin-top: 10px;
+      float: right;
+      width: 280px;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      position: relative;
+      > img {
+        width: 60px;
+        height: 60px;
+        opacity: .85;
+        float: left;
+      }
+      .cont {
+        padding: 12px 0 12px 15px;
+        overflow: hidden;
+        cursor: pointer;
+        h4 {
+          font-size: 15px;
+          color: #333;
+        }
+        p {
+          margin-top: 5px;
+          font-size: 14px;
+          color: #999
+        }
+        
+      }
+      .code {
+        display: none;
+        &::before {
+          content: '';
+          display: block;
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          z-index: 2;
+          left: 50%;
+          top: 170px;
+          transform: rotate(45deg);
+          background: #fff;
+          transform-origin: left top;
+          border-right: 1px solid #ccc; 
+          border-bottom: 1px solid #ccc; 
+        }
+        position: absolute;
+        top: -200px;
+        left: 40px;
+        width: 180px;
+        height: 180px;
+        margin: 10px;
+        background: #fff;
+        border: 1px solid #999;
+        box-shadow: 0 4px 5px #ccc;
+        border-radius: 5px;
+        img {
+          margin: 5%;
+          width: 90%;
+          height: 90%;
+        }
+      }
+      &:hover {
+        .code {
+          display: block;
+        }
+      }
+    }
+    .author {
+      margin-top: 20px;
+      float: right;
+      width: 275px;
+      > h5 {
+        font-size: 14px;
+        color: #969696;
+        margin-bottom: 10px;
+      }
+      .author-item {
+        padding: 10px 0;
+        overflow: hidden;
+        img {
+          cursor: pointer;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          float: left;
+        }
+        .cont {
+          float: left;
+          h5 {
+            cursor: pointer;
+            margin: 8px 0 0 10px;
+            font-size: 14px;
+            display: block;
+          }
+          p {
+            margin: 10px 0 0 10px;
+            font-size: 12px;
+            color: #969696;
+          }
+        }
+        .attent {
+          cursor: pointer;
+          margin-top: 5px;
+          float: right;
+          color: #42c02e;
+          font-size: 14px;
+          span {
+            font-weight: 700;
+            font-size: 16px;
+          }
+        }
+      }
+      
+    }
+  }
+  .back-top {
+    position: fixed;
+    right: 100px;
+    bottom: 50px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    color: #888;
+    cursor: pointer;
   }
 }

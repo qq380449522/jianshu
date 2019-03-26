@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { GET_HOME_LIST, ADD_ARTICLE_LIST} from './actionTypes'
+import { GET_HOME_LIST, ADD_ARTICLE_LIST,TOGGLE_TOP_SHOW} from './actionTypes'
 import axios from 'axios'
 
 const actions = {
@@ -10,25 +10,31 @@ const actions = {
         type: GET_HOME_LIST,
         topiclist: fromJS(data.topiclist),
         articlelist: fromJS(data.articlelist),
-        clublist: fromJS(data.clublist)
+        clublist: fromJS(data.clublist),
+        authorlist: fromJS(data.authorlist)
       }
       dispatch(action)
     }).catch((e) => {
       console.log(e)
     })
   },
-  loadMore: (dispatch) => {
-    axios.get('/article.json').then((res) => {
+  loadMore: (dispatch, page) => {
+    axios.get(`/article.json?page=${page}`).then((res) => {
       let data = res.data;
       let action = {
         type: ADD_ARTICLE_LIST,
         articlelist: fromJS(data),
+        page
       }
       dispatch(action)
     }).catch((e) => {
       console.log(e)
     })
-  }
+  },
+  toggleTopShow: (flag) => ({
+    type: TOGGLE_TOP_SHOW,
+    flag
+  })
 }
 
 export default actions

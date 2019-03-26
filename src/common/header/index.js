@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux';
 import Actions from './store/actionCreater'
 import './style.css'
 
 
-class Header extends Component {
+class Header extends PureComponent {
   getSearchInfo = () => {
     const { focused, hover, currentPage, changePageIndex, hotlist, handleMouseEnter, handleMouseLeave, totalPage } = this.props;
     const newlist = hotlist.toJS();
@@ -20,7 +20,7 @@ class Header extends Component {
       var transform = 'rotate(0deg)';
       return (
         <div className="search-info" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <div className='search-title'>热门搜索<a href="#change" className='search-change right' onClick={() => changePageIndex(currentPage, totalPage, this.icon)}><span ref={(icon) => this.icon = icon} className="iconfont rotate" style={{transform: transform}}>&#xe851;</span>换一换</a></div>
+          <div className='search-title'>热门搜索<a href="#change" className='search-change right' onClick={() => changePageIndex(currentPage, totalPage, this.icon)}><span ref={(icon) => this.icon = icon} className="iconfont rotate" style={{ transform: transform }}>&#xe851;</span>换一换</a></div>
           {listItems}
         </div>
       )
@@ -53,49 +53,46 @@ class Header extends Component {
   }
 }
 
-const mapState = (state) => {
-  return {
-    focused: state.getIn(['headReducer', 'focused']),
-    hover: state.getIn(['headReducer', 'hover']),
-    hotlist: state.getIn(['headReducer', 'hotlist']),
-    currentPage: state.getIn(['headReducer', 'currentPage']),
-    totalPage: state.getIn(['headReducer', 'totalPage'])
-  }
-}
-const mapDispatch = (dispatch) => {
-  return {
-    handleFocus(totalPage) {
-      if (totalPage === 1) {
-        Actions.get_search_list(dispatch);
-      }
-      const action = Actions.search_focus();
+const mapState = (state) => ({
+  focused: state.getIn(['headReducer', 'focused']),
+  hover: state.getIn(['headReducer', 'hover']),
+  hotlist: state.getIn(['headReducer', 'hotlist']),
+  currentPage: state.getIn(['headReducer', 'currentPage']),
+  totalPage: state.getIn(['headReducer', 'totalPage'])
+})
+
+const mapDispatch = (dispatch) => ({
+  handleFocus(totalPage) {
+    if (totalPage === 1) {
+      Actions.get_search_list(dispatch);
+    }
+    const action = Actions.search_focus();
+    dispatch(action)
+  },
+  handleBlur() {
+    const action = Actions.search_blur();
+    dispatch(action)
+  },
+  handleMouseEnter() {
+    const action = Actions.mouse_enter();
+    dispatch(action)
+  },
+  handleMouseLeave() {
+    const action = Actions.mouse_leave();
+    dispatch(action)
+  },
+  changePageIndex(page, totalPage, icon) {
+    let angle = icon.style.transform.replace(/[^0-9]/ig, '')
+    angle = parseInt(angle) + 360
+    icon.style.transform = "rotate(" + angle + "deg)";
+    if (page < totalPage) {
+      const action = Actions.change_page_index(page + 1);
       dispatch(action)
-    },
-    handleBlur() {
-      const action = Actions.search_blur();
+    } else {
+      const action = Actions.change_page_index(1);
       dispatch(action)
-    },
-    handleMouseEnter() {
-      const action = Actions.mouse_enter();
-      dispatch(action)
-    },
-    handleMouseLeave() {
-      const action = Actions.mouse_leave();
-      dispatch(action)
-    },
-    changePageIndex(page, totalPage, icon) {
-      let angle = icon.style.transform.replace(/[^0-9]/ig, '')
-      angle = parseInt(angle) + 360
-      icon.style.transform = "rotate(" + angle + "deg)";
-      if (page < totalPage) {
-        const action = Actions.change_page_index(page + 1);
-        dispatch(action)
-      } else {
-        const action = Actions.change_page_index(1);
-        dispatch(action)
-      }
     }
   }
-}
+})
 
 export default connect(mapState, mapDispatch)(Header)

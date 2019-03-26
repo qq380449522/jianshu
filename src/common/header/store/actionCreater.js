@@ -15,7 +15,7 @@ const actions = {
       let action = {
         type: INIT_HOT_LIST,
         data: fromJS(data),
-        size: Math.ceil(data.length/ 10)
+        size: Math.ceil(data.length / 10)
       }
       dispatch(action)
     }).catch((err) => {
@@ -29,8 +29,8 @@ const actions = {
     type: MOUSE_LEAVE
   }),
   change_page_index: (page) => ({
-      type: CHANGE_PAGE_INDEX,
-      page
+    type: CHANGE_PAGE_INDEX,
+    page
   })
 }
 

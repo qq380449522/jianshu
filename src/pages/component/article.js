@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Actions from '../home/store/actionCreater'
 import '../home/style.css'
 
-class Article extends Component {
+class Article extends PureComponent {
   render() {
-    const { article, loadMore } = this.props;
+    const { article, loadMore, pageIndex } = this.props;
     return (
       <div className="article">
         {
@@ -19,18 +19,20 @@ class Article extends Component {
             )
           })
         }
-        <div className='loadMore' onClick={loadMore}>加载更多</div>
+        <div className='loadMore' onClick={()=>{loadMore(pageIndex)}}>加载更多</div>
       </div>
     )
   }
 }
 const mapState = (state) => ({
-  article: state.getIn(['homeReducer', 'articlelist'])
+  article: state.getIn(['homeReducer', 'articlelist']),
+  pageIndex: state.getIn(['homeReducer', 'articlePage'])
 })
 
 const mapDispatch = (dispatch) => ({
-  loadMore() {
-    Actions.loadMore(dispatch);
+  loadMore(pageIndex) {
+    pageIndex++;
+    Actions.loadMore(dispatch, pageIndex);
   }
 })
 

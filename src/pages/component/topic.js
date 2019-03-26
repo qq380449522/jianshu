@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux';
 import '../home/style.css'
 
-class Topic extends Component {
+class Topic extends PureComponent {
   render() {
     const { topiclist } = this.props
     return (

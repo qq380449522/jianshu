@@ -53,5 +53,52 @@
       "id": 6,
       "img": "banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
     }
+  ],
+  "authorlist": [
+    {
+      "id": 3136195,
+      "slug": "6810a6332de9",
+      "nickname": "梅拾樱",
+      "avatar_source": "http://upload.jianshu.io/users/upload_avatars/3136195/484e32c3504a.jpg",
+      "total_likes_count": 23839,
+      "total_wordage": 277691,
+      "is_following_user": false
+    },
+    {
+      "id": 4802366,
+      "slug": "13cba2dc6b23",
+      "nickname": "汪波_偶遇科学",
+      "avatar_source": "http://upload.jianshu.io/users/upload_avatars/4802366/4f86b75d-b61b-4126-8be4-87a151c9cd28.jpg",
+      "total_likes_count": 1989,
+      "total_wordage": 307914,
+      "is_following_user": false
+    },
+    {
+      "id": 13213889,
+      "slug": "080bb4eac1c9",
+      "nickname": "无限猴子",
+      "avatar_source": "http://upload.jianshu.io/users/upload_avatars/13213889/7314c5cc-ca7f-4542-b914-2c8dffaf324d.jpg",
+      "total_likes_count": 1439,
+      "total_wordage": 282591,
+      "is_following_user": false
+    },
+    {
+      "id": 6652326,
+      "slug": "addcee2f9c78",
+      "nickname": "没文化的野狐狸",
+      "avatar_source": "http://upload.jianshu.io/users/upload_avatars/6652326/ba6106f4-20eb-4735-885d-561083bd4e55.jpg",
+      "total_likes_count": 5156,
+      "total_wordage": 288546,
+      "is_following_user": false
+    },
+    {
+      "id": 3292545,
+      "slug": "c4165d16d0ad",
+      "nickname": "北美之北",
+      "avatar_source": "http://upload.jianshu.io/users/upload_avatars/3292545/78f2855a-80fd-419a-9fb2-1aeed39690f0.png",
+      "total_likes_count": 28693,
+      "total_wordage": 432605,
+      "is_following_user": false
+    }
   ]
 }
