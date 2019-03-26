@@ -1,7 +1,5 @@
-=======
 # jianshu
-=======
->>>>>>> 64d8d48410119bd7cf0179997c6025077f568b53
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
