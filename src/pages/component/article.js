@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Actions from '../home/store/actionCreater'
+import { Link } from 'react-router-dom'
 import '../home/style.css'
 
 class Article extends PureComponent {
@@ -13,13 +14,13 @@ class Article extends PureComponent {
             return (
               <div className="art-item" key={index}>
                 <img src={item.get('img')} alt="" />
-                <h5>{item.get('title')}</h5>
+                <h5><Link to={'/detail/' + index}>{item.get('title')}</Link></h5>
                 <p>{item.get('cont')}</p>
               </div>
             )
           })
         }
-        <div className='loadMore' onClick={()=>{loadMore(pageIndex)}}>加载更多</div>
+        <div className='loadMore' onClick={() => { loadMore(pageIndex) }}>加载更多</div>
       </div>
     )
   }

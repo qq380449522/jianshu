@@ -1,0 +1,46 @@
+.sign {
+  height: 100%;
+  min-height: 750px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+
+.sign .login-box {
+  margin: 150px auto;
+  background: #fff;
+  border-radius: 30px;
+  width: 400px;
+  height: 300px;
+  padding-top: 30px;
+}
+
+.sign .login-box h2 {
+  color: #ea6f5a;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.sign .login-box input {
+  display: block;
+  margin: 20px auto;
+  padding: 15px;
+  width: 230px;
+  border: 1px solid skyblue;
+  border-radius: 15px;
+  outline: none;
+}
+
+.sign .login-box button {
+  width: 220px;
+  height: 40px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background: #3194d0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

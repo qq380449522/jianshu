@@ -1,0 +1,1 @@
+export const GET_DETAIL_CONT = 'get_detail_cont' 

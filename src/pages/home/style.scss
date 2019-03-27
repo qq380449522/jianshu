@@ -42,11 +42,13 @@
         padding: 20px 0;
         border-bottom: 1px solid #f0f0f0;
         h5 {
+          a {
+            color: #2f2f2f;
+          }
           display: inherit;
           font-size: 18px;
           font-weight: 700;
           line-height: 1.5;
-          color: #2f2f2f;;
         }
         p {
           margin: 0 0 8px;

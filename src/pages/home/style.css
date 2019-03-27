@@ -59,6 +59,9 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1.5;
+}
+
+.wrapper > .con-left .article .art-item h5 a {
   color: #2f2f2f;
 }
 

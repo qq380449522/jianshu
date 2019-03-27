@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux';
 import Actions from './store/actionCreater'
+import { Link } from 'react-router-dom'
 import './style.css'
 
 
@@ -29,27 +30,33 @@ class Header extends PureComponent {
     }
   }
   render() {
-    const { focused, handleBlur, handleFocus, totalPage } = this.props;
-    return (
-      <div className='header'>
-        <a href="/" className='logo'> </a>
-        <div className="nav">
-          <a href="/" className="item left active">首页</a>
-          <a href="/" className="item left">下载APP</a>
-          <div className='search-box'>
-            <input type="text" placeholder='搜索' className={focused ? 'focuse-search' : 'search'} onBlur={handleBlur} onFocus={() => handleFocus(totalPage)} />
-            <span className="iconfont">&#xe6e4;</span>
-            {this.getSearchInfo()}
+    const { focused, loginPage, handleBlur, handleFocus, totalPage, loginStatus, logout } = this.props;
+    if (!loginPage) {
+      return (
+        <div className='header'>
+          <Link to="/" className='logo'> </Link>
+          <div className="nav">
+            <Link to="/" className="item left active">首页</Link>
+            <a href="/" className="item left">下载APP</a>
+            <div className='search-box'>
+              <input type="text" placeholder='搜索' className={focused ? 'focuse-search' : 'search'} onBlur={handleBlur} onFocus={() => handleFocus(totalPage)} />
+              <span className="iconfont">&#xe6e4;</span>
+              {this.getSearchInfo()}
+            </div>
+            {
+              !loginStatus ? < Link to="/login" className="item right">登录</Link> : <div onClick={logout} className="item right">退出</div>
+            }
+            <a href="/" className="item right"><span className="iconfont">&#xe636;</span></a>
           </div>
-          <a href="/" className="item right">登录</a>
-          <a href="/" className="item right"><span className="iconfont">&#xe636;</span></a>
-        </div>
-        <div className='addition right'>
-          <a href="/" className='reg'>注册</a>
-          <a href="/" className='write'><span className="iconfont">&#xe63a;</span>写文章</a>
-        </div>
-      </div>
-    )
+          <div className='addition right'>
+            <a href="/" className='reg'>注册</a>
+            <a href="/" className='write'><span className="iconfont">&#xe63a;</span>写文章</a>
+          </div>
+        </div >
+      )
+    } else {
+      return null
+    }
   }
 }
 
@@ -58,7 +65,9 @@ const mapState = (state) => ({
   hover: state.getIn(['headReducer', 'hover']),
   hotlist: state.getIn(['headReducer', 'hotlist']),
   currentPage: state.getIn(['headReducer', 'currentPage']),
-  totalPage: state.getIn(['headReducer', 'totalPage'])
+  totalPage: state.getIn(['headReducer', 'totalPage']),
+  loginStatus: state.getIn(['loginReducer', 'loginStatus']),
+  loginPage: state.getIn(['loginReducer', 'loginPage'])
 })
 
 const mapDispatch = (dispatch) => ({
@@ -92,6 +101,12 @@ const mapDispatch = (dispatch) => ({
       const action = Actions.change_page_index(1);
       dispatch(action)
     }
+  },
+  logout() {
+    const action = {
+      type: 'logout'
+    }
+    dispatch(action)
   }
 })
 
